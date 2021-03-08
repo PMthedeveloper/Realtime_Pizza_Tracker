@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="icon"
       href="/public/favicon.ico"
       type="image/ico"
       sizes="16x16"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Realtime Pizza tracking</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -25,7 +26,7 @@
   <body>
     <nav class="container mx-auto flex items-center justify-between py-4">
       <div>
-        <img src="/img/logo.png" alt="logo" />
+       <a href="/"> <img src="/img/logo.png" alt="logo" /></a>
       </div>
       <div>
         <ul class="flex items-center">
@@ -34,8 +35,9 @@
           <li class="ml-6"><a href="/register">Register</a></li>
           <li class="ml-6"><a href="/login">Login</a></li>
           <li class="ml-6">
-            <a href="/cart" class="inline-block px-4 py-2 rounded-full"
-              ><img src="/img/cart.png" alt="cart"
+            <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center">
+              <span id="cartCounter" class="text-white font-bold pr-2"><%= session.cart ? session.cart.totalQty : '' %></span>
+              <img src="/img/cart.png" alt="cart"
             /></a>
           </li>
         </ul>

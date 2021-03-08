@@ -1,4 +1,6 @@
 @import './variables';
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
 
 *{
     margin: 0;
@@ -38,7 +40,9 @@ section.hero{
     border: 2px solid $primary;
     color: $primary;
     transition: $smooth;
-    outline: none;
+    &:focus{
+        outline: none;
+    }
     &:hover{
         background: $primary;
         border-color: $pure;
@@ -72,3 +76,7 @@ section.login{
     }
 }
 
+.noty_theme__mint{
+    border-radius: 50px!important;
+    padding-left: 8px!important;
+}
