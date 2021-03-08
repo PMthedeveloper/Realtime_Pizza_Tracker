@@ -1,5 +1,11 @@
 @import './variables';
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Lato',sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -39,3 +45,30 @@ section.hero{
         color: $pure;
     }
 }
+
+.btn-primary{
+    background:$primary;
+    &:hover{
+        background: $primary-hover;
+    }
+    transition: $smooth;
+}
+
+section.cart{
+    background: $secondary;
+    .amount{
+        color: $primary;
+    }
+}
+
+section.login{
+    background: $secondary;
+    min-height: calc(100vh - 86vh);
+    a{
+        color: $primary;
+        &:hover{
+            color: $primary-hover;
+        }
+    }
+}
+
