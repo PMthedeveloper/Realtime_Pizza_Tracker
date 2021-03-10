@@ -285,6 +285,7 @@ body {
   font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #232323;
+  scroll-behavior: smooth;
 }
 
 nav li:last-child a {
@@ -327,6 +328,9 @@ section.hero {
   background: #FE5F1E;
   transition: all 0.3s ease-in-out;
 }
+.btn-primary:focus {
+  outline: none;
+}
 .btn-primary:hover {
   background: #b23301;
 }
@@ -352,4 +356,8 @@ section.login a:hover {
 .noty_theme__mint {
   border-radius: 50px !important;
   padding-left: 8px !important;
+}
+
+a.link {
+  color: #FE5F1E;
 }
