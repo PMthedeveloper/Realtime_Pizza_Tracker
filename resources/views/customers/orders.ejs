@@ -23,7 +23,7 @@
                         Address
                     </th>
                     <th class="px-4 py-2 text-left">
-                        Time
+                        Order Time
                     </th>
                 </tr>
             </thead>
@@ -31,9 +31,17 @@
                 <% if(orders.length){ %>
                     <% orders.forEach((order) => { %>
                         <tr>
-                            <td class="border px-4 py-2"> 
-                              <a class="link" href="/customer/orders/<%= order._id %>"> <%= order._id %> </a>  
-                            </td>
+                           <% if(order.status == "completed"){ %>
+                                <td class="border px-4 py-2"> 
+                                    <a  style="text-decoration: line-through;" class="link" href="/customer/orders/<%= order._id %>"> <%= order._id %> </a>  
+                                    <p> <span> Order completed At: </span><%= moment(order.updatedAt).calendar() %></p>
+                                  </td>
+                           <% }else{ %>
+                                <td class="border px-4 py-2"> 
+                                    <a class="link" href="/customer/orders/<%= order._id %>"> <%= order._id %> </a>  
+                                  </td>
+                           <% } %>
+                           
                             <td class="border px-4 py-2"> 
                               <%= order.mobile %>
                             </td>

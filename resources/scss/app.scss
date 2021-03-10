@@ -2,111 +2,127 @@
 @import '~noty/src/noty.scss';
 @import '~noty/src/themes/mint.scss';
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'Lato',sans-serif;
-    -webkit-font-smoothing:antialiased;
+body {
+    font-family: 'Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
     color: $dark;
     scroll-behavior: smooth;
 }
 
-nav li:last-child a{
+nav li .cartz {
     background: $primary;
-    &:hover{
+
+    &:hover {
         background: $primary-hover;
     }
 }
 
-nav li a{
+nav li a {
     transition: $smooth;
-    &:hover{
+
+    &:hover {
         color: $primary;
     }
 }
 
-section.hero{
+section.hero {
     background: $secondary;
 }
 
-.size{
+.size {
     background: $secondary;
 }
 
-.add-to-cart{
+.add-to-cart {
     border: 2px solid $primary;
     color: $primary;
     transition: $smooth;
-    &:focus{
+
+    &:focus {
         outline: none;
     }
-    &:hover{
+
+    &:hover {
         background: $primary;
         border-color: $pure;
         color: $pure;
     }
 }
 
-.btn-primary{
-    background:$primary;
-    &:focus{
+.btn-primary {
+    background: $primary;
+
+    &:focus {
         outline: none;
     }
-    &:hover{
+
+    &:hover {
         background: $primary-hover;
     }
+
     transition: $smooth;
 }
 
-section.cart{
+section.cart {
     background: $secondary;
-    .amount{
+
+    .amount {
         color: $primary;
     }
 }
 
-section.login{
+section.login {
     background: $secondary;
     min-height: calc(100vh - 86px);
-    a{
+
+    a {
         color: $primary;
-        &:hover{
+
+        &:hover {
             color: $primary-hover;
         }
     }
 }
 
-.noty_theme__mint{
-    border-radius: 50px!important;
-    padding-left: 8px!important;
+.noty_theme__mint {
+    border-radius: 50px !important;
+    padding-left: 8px !important;
 }
 
-a.link{
+a.link {
     color: $primary;
 }
 
-section.status{
+section.status {
+    background: $secondary;
+    min-height: calc(100vh - 86px);
+}
+section.orders {
     background: $secondary;
     min-height: calc(100vh - 86px);
 }
 
-.status-box{
+.status-box {
     padding: 60px 0 0;
 }
-.status-box ul{
+
+.status-box ul {
     margin-left: 84px;
 }
 
-.status-box ul li span{
+.status-box ul li span {
     position: relative;
     padding-left: 20px;
 }
+
 // Dots
-.status-box ul li span:after{
+.status-box ul li span:after {
     content: '';
     position: absolute;
     left: -10px;
@@ -121,7 +137,7 @@ section.status{
 
 // icons
 
-.status-box ul li span:before{
+.status-box ul li span:before {
     font-family: "Line Awesome Free";
     font-size: 46px;
     font-weight: 600;
@@ -132,28 +148,32 @@ section.status{
     color: inherit;
 }
 
-.status-box ul li:nth-child(1) span:before{
+.status-box ul li:nth-child(1) span:before {
     content: '\f46c';
 }
-.status-box ul li:nth-child(2) span:before{
+
+.status-box ul li:nth-child(2) span:before {
     content: '\f560';
 }
-.status-box ul li:nth-child(3) span:before{
+
+.status-box ul li:nth-child(3) span:before {
     content: '\f818';
 }
-.status-box ul li:nth-child(4) span:before{
+
+.status-box ul li:nth-child(4) span:before {
     content: '\f0d1';
 }
-.status-box ul li:nth-child(5) span:before{
+
+.status-box ul li:nth-child(5) span:before {
     content: '\f582';
 }
 
-.status-box ul li{
+.status-box ul li {
     position: relative;
 }
 
 // Line
-.status-box ul li:before{
+.status-box ul li:before {
     content: '';
     position: absolute;
     top: 0;
@@ -163,33 +183,55 @@ section.status{
     background: $dark;
     margin-top: 10px;
 }
+
 // Last dot
-.status-box ul li:nth-child(5) span:after{
+.status-box ul li:nth-child(5) span:after {
     box-shadow: 0 20px 1px 20px $secondary;
 }
 
-.status-box ul li.step_completed:before{
+.status-box ul li.step_completed:before {
     background: $gray;
 }
-.status-box ul li.step_completed span:after{
-    background: $gray!important;
+
+.status-box ul li.step_completed span:after {
+    background: $gray !important;
 }
-.status-box ul li.step_completed span{
-    color: $gray!important;
+
+.status-box ul li.step_completed span {
+    color: $gray !important;
 }
 
 // Current status
-.status-box ul li.current span{
-    color: $primary!important;
+.status-box ul li.current span {
+    color: $primary !important;
 }
 
-.status-box ul li.current span:after{
-    background: $primary!important;
+.status-box ul li.current span:after {
+    background: $primary !important;
 }
 
-.status-box ul li small{
+.status-box ul li small {
     float: right;
     font-size: 14px;
     margin-top: 8px;
     font-weight: bold;
+}
+
+
+@media(max-width:1060px) {
+    .container {
+        max-width: 90%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media(max-width:768) {
+    .status-box ul li span:before {
+        font-size: 34px;
+    }
 }

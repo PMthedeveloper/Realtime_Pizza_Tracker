@@ -1923,11 +1923,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var addToCart = document.querySelectorAll('.add-to-cart');
-var cartCounter = document.querySelector('#cartCounter');
+var addToCart = document.querySelectorAll(".add-to-cart");
+var cartCounter = document.querySelector("#cartCounter");
 
 var updateCart = function updateCart(pizza) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default().post('/update-cart', pizza).then(function (res) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default().post("/update-cart", pizza).then(function (res) {
     cartCounter.innerText = res.data.totalQty;
     new (noty__WEBPACK_IMPORTED_MODULE_2___default())({
       type: "success",
@@ -1946,13 +1946,13 @@ var updateCart = function updateCart(pizza) {
 };
 
 addToCart.forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
+  btn.addEventListener("click", function (e) {
     var pizza = JSON.parse(btn.dataset.pizza);
     updateCart(pizza); // console.log(pizza);
   });
 }); // Remove alert message after X sec.
 
-var alertMsg = document.querySelector('#success-alert');
+var alertMsg = document.querySelector("#success-alert");
 
 if (alertMsg) {
   setTimeout(function () {
@@ -1961,32 +1961,32 @@ if (alertMsg) {
 } // Change order status
 
 
-var statuses = document.querySelectorAll('.status_line');
-var hiddenInput = document.querySelector('#hiddenInput');
+var statuses = document.querySelectorAll(".status_line");
+var hiddenInput = document.querySelector("#hiddenInput");
 var order = hiddenInput ? hiddenInput.value : null;
 order = JSON.parse(order);
-var time = document.createElement('small');
+var time = document.createElement("small");
 
 var updateStatus = function updateStatus(order) {
   statuses.forEach(function (status) {
-    status.classList.remove('step_completed');
-    status.classList.remove('current');
+    status.classList.remove("step_completed");
+    status.classList.remove("current");
   });
   var stepCompleted = true;
   statuses.forEach(function (status) {
     var dataProp = status.dataset.status;
 
     if (stepCompleted) {
-      status.classList.add('step_completed');
+      status.classList.add("step_completed");
     }
 
     if (dataProp === order.status) {
       stepCompleted = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_1___default()(order.updatedAt).format('hh:mm:ss A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_1___default()(order.updatedAt).format("hh:mm:ss A");
       status.appendChild(time);
 
       if (status.nextElementSibling) {
-        status.nextElementSibling.classList.add('current');
+        status.nextElementSibling.classList.add("current");
       }
     }
   });
@@ -1994,20 +1994,20 @@ var updateStatus = function updateStatus(order) {
 
 updateStatus(order); // Socket
 
-var socket = io();
-(0,_admin__WEBPACK_IMPORTED_MODULE_3__.initAdmin)(socket); // Join
+var socket = io(); // Join
 
 if (order) {
-  socket.emit('join', "order_".concat(order._id));
+  socket.emit("join", "order_".concat(order._id));
 }
 
 var adminAreaPath = window.location.pathname;
 
-if (adminAreaPath.includes('admin')) {
-  socket.emit('join', 'adminRoom');
+if (adminAreaPath.includes("admin")) {
+  (0,_admin__WEBPACK_IMPORTED_MODULE_3__.initAdmin)(socket);
+  socket.emit("join", "adminRoom");
 }
 
-socket.on('orderUpdated', function (data) {
+socket.on("orderUpdated", function (data) {
   var updatedOrder = _objectSpread({}, order);
 
   updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_1___default()().format();

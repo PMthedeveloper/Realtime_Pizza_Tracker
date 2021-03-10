@@ -289,10 +289,10 @@ body {
   scroll-behavior: smooth;
 }
 
-nav li:last-child a {
+nav li .cartz {
   background: #FE5F1E;
 }
-nav li:last-child a:hover {
+nav li .cartz:hover {
   background: #b23301;
 }
 
@@ -364,6 +364,11 @@ a.link {
 }
 
 section.status {
+  background: #F8F8F8;
+  min-height: calc(100vh - 86px);
+}
+
+section.orders {
   background: #F8F8F8;
   min-height: calc(100vh - 86px);
 }
@@ -469,4 +474,21 @@ section.status {
   font-size: 14px;
   margin-top: 8px;
   font-weight: bold;
+}
+
+@media (max-width: 1060px) {
+  .container {
+    max-width: 90%;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 768) {
+  .status-box ul li span:before {
+    font-size: 34px;
+  }
 }
