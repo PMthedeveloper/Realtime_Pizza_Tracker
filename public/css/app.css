@@ -282,13 +282,45 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #232323;
-  scroll-behavior: smooth;
 }
 
+.pizzasingle:hover {
+  width: 170px;
+  height: 170px;
+  -webkit-animation: mymove 7s infinite;
+          animation: mymove 7s infinite;
+}
+
+.hero-pizza:hover {
+  width: 34%;
+  height: 34%;
+  -webkit-animation: mymove 7s infinite;
+          animation: mymove 7s infinite;
+}
+
+@-webkit-keyframes mymove {
+  50% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mymove {
+  50% {
+    transform: rotate(360deg);
+  }
+}
 nav li .cartz {
   background: #FE5F1E;
 }

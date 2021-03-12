@@ -13,7 +13,7 @@ const passport = require("passport");
 const Emitter = require('events')
 
 // Database connection
-const MONGO_CONNECTION_URL = "mongodb://localhost/pizzas";
+const MONGO_CONNECTION_URL = process.env.MONGO_CONNECTION_URL;
 mongoose.connect(MONGO_CONNECTION_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -79,6 +79,9 @@ app.set("views", path.join(__dirname, "/resources/views"));
 app.set("view engine", "ejs");
 
 require("./routes/web")(app);
+app.use((req,res)=>{
+  res.status(404).render('errors/404')
+})
 
 const server = app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
