@@ -29,6 +29,10 @@ const orderSchema = new Schema(
       type: String,
       default: "order_placed",
     },
+    paymentStatus:{
+      type:Boolean,
+      default:false
+    }
   },
   { timestamps: true }
 );

@@ -2,6 +2,7 @@ import axios from "axios";
 import moment from "moment";
 import Noty from "noty";
 import { initAdmin } from "./admin";
+import { initStripe } from "./stripe";
 
 let addToCart = document.querySelectorAll(".add-to-cart");
 let cartCounter = document.querySelector("#cartCounter");
@@ -16,6 +17,7 @@ const updateCart = (pizza) => {
         text: "Item added to cart",
         timeout: 1000,
         progressBar: false,
+        
       }).show();
     })
     .catch((err) => {
@@ -75,6 +77,8 @@ const updateStatus = (order) => {
 };
 
 updateStatus(order);
+initStripe();
+
 
 // Socket
 let socket = io();
